@@ -11,6 +11,9 @@ URL:		https://github.com/gregsymons/di-ruby-lvm-attrib
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.656
 BuildRequires:	sed >= 4.0
+# requires specific lvm2 version, because attributes need to be generated for each version
+# https://github.com/gregsymons/di-ruby-lvm-attrib#adding-attributes
+%requires_eq lvm2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
