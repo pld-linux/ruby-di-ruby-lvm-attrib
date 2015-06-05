@@ -27,6 +27,12 @@ A list of attributes for LVM objects
 %patch0 -p1
 %{__sed} -i -e '1 s,#!.*ruby,#!%{__ruby},' bin/*
 
+# as we have strict dep on lvm2 package, we do not need other versions
+install -d extra-attributes
+mv lib/lvm/attributes/* extra-attributes
+ver=$(rpm -q --qf '%{V}' lvm2)
+mv extra-attributes/$ver* lib/lvm/attributes
+
 %build
 # write .gemspec
 %__gem_helper spec
