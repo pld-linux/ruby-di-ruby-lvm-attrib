@@ -1,13 +1,13 @@
 %define	pkgname	di-ruby-lvm-attrib
 Summary:	A list of attributes for LVM objects
 Name:		ruby-%{pkgname}
-Version:	0.0.12
+Version:	0.0.19
 Release:	1
 License:	GPL v2+ or Ruby
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
-# Source0-md5:	6f9a5ef1ed9c9006898ce12f6132913f
-URL:		https://github.com/DrillingInfo/di-ruby-lvm-attrib
+# Source0-md5:	5723064c4edcbf4c9819dcb607bc3580
+URL:		https://github.com/gregsymons/di-ruby-lvm-attrib
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.656
 BuildRequires:	sed >= 4.0
@@ -29,7 +29,6 @@ A list of attributes for LVM objects
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{ruby_vendorlibdir},%{ruby_specdir},%{_bindir}}
 cp -a lib/* $RPM_BUILD_ROOT%{ruby_vendorlibdir}
-cp -a bin/* $RPM_BUILD_ROOT%{_bindir}
 cp -p %{pkgname}-%{version}.gemspec $RPM_BUILD_ROOT%{ruby_specdir}
 
 %clean
@@ -37,7 +36,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/generate_field_data
 %dir %{ruby_vendorlibdir}/lvm
 %{ruby_vendorlibdir}/lvm/attributes.rb
 %{ruby_vendorlibdir}/lvm/attributes
