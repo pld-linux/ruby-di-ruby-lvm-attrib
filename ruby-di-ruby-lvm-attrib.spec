@@ -7,6 +7,8 @@ License:	GPL v2+ or Ruby
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
 # Source0-md5:	5723064c4edcbf4c9819dcb607bc3580
+Patch0:	https://github.com/gregsymons/di-ruby-lvm-attrib/pull/26.patch
+# Patch0-md5:	162fa09f563143f5bc8c97804c5fef0f
 URL:		https://github.com/gregsymons/di-ruby-lvm-attrib
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.656
@@ -22,6 +24,7 @@ A list of attributes for LVM objects
 
 %prep
 %setup -q -n %{pkgname}-%{version}
+%patch0 -p1
 %{__sed} -i -e '1 s,#!.*ruby,#!%{__ruby},' bin/*
 
 %build
