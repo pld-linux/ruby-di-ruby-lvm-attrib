@@ -10,13 +10,13 @@ Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
 Patch0:		https://github.com/gregsymons/di-ruby-lvm-attrib/pull/26.patch
 # Patch0-md5:	162fa09f563143f5bc8c97804c5fef0f
 URL:		https://github.com/gregsymons/di-ruby-lvm-attrib
-BuildRequires:	lvm2
+BuildRequires:	device-mapper-devel
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.656
 BuildRequires:	sed >= 4.0
 # requires specific lvm2 version, because attributes need to be generated for each version
 # https://github.com/gregsymons/di-ruby-lvm-attrib#adding-attributes
-%requires_eq lvm2
+%requires_eq_to lvm2 device-mapper-devel
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -31,7 +31,7 @@ A list of attributes for LVM objects
 # as we have strict dep on lvm2 package, we do not need other versions
 install -d extra-attributes
 mv lib/lvm/attributes/* extra-attributes
-ver=$(rpm -q --qf '%{V}' lvm2)
+ver=$(rpm -q --qf '%{V}' device-mapper-devel)
 mv extra-attributes/$ver* lib/lvm/attributes
 
 %build
