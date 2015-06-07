@@ -2,14 +2,15 @@
 Summary:	A list of attributes for LVM objects
 Name:		ruby-%{pkgname}
 Version:	0.0.19
-Release:	1
+Release:	2
 License:	GPL v2+ or Ruby
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
 # Source0-md5:	5723064c4edcbf4c9819dcb607bc3580
-Patch0:	https://github.com/gregsymons/di-ruby-lvm-attrib/pull/26.patch
+Patch0:		https://github.com/gregsymons/di-ruby-lvm-attrib/pull/26.patch
 # Patch0-md5:	162fa09f563143f5bc8c97804c5fef0f
 URL:		https://github.com/gregsymons/di-ruby-lvm-attrib
+BuildRequires:	lvm2
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.656
 BuildRequires:	sed >= 4.0
