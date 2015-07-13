@@ -28,6 +28,13 @@ lvm_dir=$(ls -d "$lvm_version("*")-git")
 attr_dir=lib/lvm/attributes/${lvm_dir%-git}
 mv $lvm_dir $attr_dir
 
+git_branch=LVM-$lvm_version
 git add -A $attr_dir
-git checkout -b LVM-$lvm_version
+git checkout -b $git_branch
 git commit -am "Added $lvm_version attributes"
+
+cat <<EOF
+To push, run:
+git push --set-upstream origin $git_branch
+
+EOF
