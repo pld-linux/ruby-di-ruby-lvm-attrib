@@ -639,10 +639,3 @@ index 0000000..e032395
 +  :column: vg_uuid
 +  :type_hint: String
 +  :description: Unique identifier.
-diff --git a/lvm2 b/lvm2
-index bee2df3..629398d 160000
---- a/lvm2
-+++ b/lvm2
-@@ -1 +1 @@
--Subproject commit bee2df3903d0956ba2e09ce9ae9ae55dfc5d3fd1
-+Subproject commit 629398d0f275e6ee5abf7929bc80e671e9f141c7
