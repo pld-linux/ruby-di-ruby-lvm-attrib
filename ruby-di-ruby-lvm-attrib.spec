@@ -1,13 +1,13 @@
 %define	pkgname	di-ruby-lvm-attrib
 Summary:	A list of attributes for LVM objects
 Name:		ruby-%{pkgname}
-Version:	0.0.25
+Version:	0.0.26
 Release:	1
 License:	GPL v2+ or Ruby
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
-# Source0-md5:	f689331aca1d5975345c8ab6bcf3d8b8
-Patch0:		lvm2.02.149.patch
+# Source0-md5:	a5d0b61b989468f53f20976e39ac13df
+Patch0:		lvm2.02.161.patch
 URL:		https://github.com/gregsymons/di-ruby-lvm-attrib
 BuildRequires:	device-mapper-devel
 BuildRequires:	rpm-rubyprov
