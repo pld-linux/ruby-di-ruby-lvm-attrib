@@ -24,17 +24,13 @@ tag_ver=v$(echo "$lvm_version" | tr . _)
 
 ./update-lvm.sh "$tag_ver"
 
-lvm_dir=$(ls -d "$lvm_version("*")-git")
-attr_dir=lib/lvm/attributes/${lvm_dir%-git}
-mv $lvm_dir $attr_dir
+git_branch=$(git rev-parse --abbrev-ref HEAD)
 
-git_branch=LVM-$lvm_version
-git add -A $attr_dir
-git checkout -b $git_branch
-git commit -am "Added $lvm_version attributes"
+dir=$(pwd)
 
 cat <<EOF
-To push, run:
-git push --set-upstream origin $git_branch
+To push, run in $dir:
+
+  git push --set-upstream origin $git_branch
 
 EOF
