@@ -22,6 +22,8 @@ git pull --rebase
 lvm_version=$(rpm -q device-mapper-devel --qf '%{V}')
 tag_ver=v$(echo "$lvm_version" | tr . _)
 
+echo "Updating with $lvm_version (from device-mapper-devel package)"
+
 ./update-lvm.sh "$tag_ver"
 
 git_branch=$(git rev-parse --abbrev-ref HEAD)
